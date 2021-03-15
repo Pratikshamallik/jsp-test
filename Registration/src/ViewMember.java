@@ -41,26 +41,37 @@ public class ViewMember extends HttpServlet {
 			pst.setString(1, phone);
 			
 			rs = pst.executeQuery();
-			
-			out.println("<nav><a href='logout.jsp'>Logout</a><nav>");
-			
-			out.println("<table width ='400px' border='1'>");
+			out.println("<head><link rel=\"stylesheet\" href='https://bootswatch.com/4/yeti/bootstrap.min.css'\"></head>");
+			out.println("<body>");
+			out.println("<nav class='navbar justify-content-between navbar-expand navbar-dark bg-primary'>\r\n"
+					+ "	<a class='navbar-brand' href='index.jsp'>Pratiksha's Project</a>\r\n"
+					+ "	<ul class='navbar-nav navbar-right'>\r\n"
+					+ "		<li class='nav-item'><a class='nav-link' href='logout.jsp'>Logout</a></li>\r\n"
+					+ "	</ul>\r\n"
+					+ "</nav>");
+			out.println("<div class='container'>");
+			out.println("<table class='table table-striped table-hover m-5'>");
+			out.println("<thead class=' bg-info'>");
+			out.println("<tr>");out.println("<th width ='250px'> <strong>Info</strong> </th><th>Value</th>");out.println("</tr>");
+			out.println("</thead>");
+			out.println("<tbody>");
 			while(rs.next())
 			{
-
-			
 			out.println("<tr>");out.println("<td width ='250px'> <strong>Name</strong> </td><td>"+ rs.getString("uname") + "</td>");out.println("</tr>");
 			out.println("<tr>");out.println("<td> <strong>Phone</strong> </td><td>" + rs.getString("phone") + "</td>");out.println("</tr>");
 			out.println("<tr>");out.println("<td> <strong>Age</strong> </td><td>" + rs.getString("age") + "</td>");out.println("</tr>");
 			out.println("<tr>");out.println("<td> <strong>Gender</strong> </td><td>" + rs.getString("gender") + "</td>");out.println("</tr>");
 			out.println("<tr>");out.println("<td> <strong>Address</strong> </td><td>" + rs.getString("address") + "</td>");out.println("</tr>");
 			out.println("<tr>");out.println("<td> <strong>Password</strong> </td><td>" + rs.getString("password") + "</td>");out.println("</tr>");
-			
-			out.println("<td colspan=2>"+ "<a href='editreturn?phone=" + rs.getString("phone")+ "'>Edit</a>" + "</td>");
+			out.println("<tr>");
+			out.println("<td colspan=2>"+ "<a class='btn btn-danger btn-sm' href='editreturn?phone=" + rs.getString("phone")+ "'>Edit</a>" + "</td>");
 			out.println("</tr>");
 
 			}
+			out.println("</tbody>");
 			out.println("</table>");
+			out.println("</contanier>");
+			out.println("</body>");
 		} catch (ClassNotFoundException ex) {
 			Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (SQLException ex) {

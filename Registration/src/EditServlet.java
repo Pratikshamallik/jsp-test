@@ -48,8 +48,22 @@ public class EditServlet extends HttpServlet {
 			row = pst.executeUpdate();
 			
 //			response.sendRedirect("login.jsp");
-			out.println("<font color='green'>Update Success.</font>");
-			out.println("<a href='logout.jsp'>Logout</a>");
+			
+			out.println("<head><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css\" integrity=\"sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l\" crossorigin=\"anonymous\"></head>");
+			out.println("<body>");
+			out.println("<nav class='navbar justify-content-between navbar-expand navbar-dark bg-secondary'>\r\n"
+					+ "	<a class='navbar-brand' href='index.jsp'>Pratiksha's Project</a>\r\n"
+					+ "	<ul class='navbar-nav navbar-right'>\r\n"
+					+ "		<li class='nav-item'><a class='nav-link' href='logout.jsp'>Logout</a></li>\r\n"
+					+ "	</ul>\r\n"
+					+ "</nav>");
+			
+			out.println("<div class='container mt-5'>\r\n"
+					+ "<div class='card'>\r\n"
+
+					+ "<h1 class='card-header'><font color='green'>Update Success.</font></h1>\r\n"
+					+ "<div class='card-body'>");
+			out.println("<a class='btn btn-success' href='logout.jsp'>Logout</a>");
 			
 		} catch (ClassNotFoundException ex) {
 			Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);

@@ -42,18 +42,61 @@ public class EditReturn extends HttpServlet {
 			
 			while(rs.next())
 			{
-				out.println("<table>");
-				out.println("<form action='editservlet' method='POST'");
 
-				out.println("<tr>");out.println("<td>Name</td> <td><input type='text' name='uname' value='" + rs.getString("uname") + "'/></td>");out.println("</tr>");
-				out.println("<tr>");out.println("<td>Age</td> <td><input type='text' name='age' value='" + rs.getString("age") + "'/></td>");out.println("</tr>");				
-				out.println("<tr>");out.println("<td>Gender</td> <td><input type='text' name='gender' value='" + rs.getString("gender") + "'/></td>");out.println("</tr>");				
-				out.println("<tr>");out.println("<td>Address</td> <td><input type='text' name='address' value='" + rs.getString("address") + "'/></td>");out.println("</tr>");				
-				out.println("<tr>");out.println("<td>Password</td> <td><input type='text' name='password' value='" + rs.getString("password") + "'/></td>");out.println("</tr>");
-				out.println("<tr>");out.println("<td colspan=2><input type='submit' name='submit' /></td></tr>");out.println("</tr>");
+				out.println("<head><link rel=\"stylesheet\" href=\"https://bootswatch.com/4/yeti/bootstrap.min.css\"></head>");
+				out.println("<body>");
+				out.println("<nav class='navbar justify-content-between navbar-expand navbar-dark bg-primary'>\r\n"
+						+ "	<a class='navbar-brand' href='index.jsp'>Pratiksha's Project</a>\r\n"
+						+ "	<ul class='navbar-nav navbar-right'>\r\n"
+						+ "		<li class='nav-item'><a class='nav-link' href='logout.jsp'>Logout</a></li>\r\n"
+						+ "	</ul>\r\n"
+						+ "</nav>");
+				
+				out.println("<div class='container mt-5'>\r\n"
+						+ "<div class='card'>\r\n"
+
+						+ "<h4 class='card-header'>Update Details</h4>\r\n"
+						+ "<div class='card-body'>\r\n"
+						+ "<form action='editservlet' method='POST'>\r\n"
+				
+						+ "<div class='form-group'>\r\n"
+						+ "<label>Name</label>\r\n"
+						+ "<input class='form-control' type='text' name='uname' value='" 
+						+ rs.getString("uname") + "'/>\r\n"
+						+ "</div>\r\n"
+				
+						+ "<div class='form-group '>\r\n"
+						+ "<label>Age</label>\r\n"
+						+ "<input class='form-control' type='text' name='age' value='" 
+						+ rs.getString("age") + "'/>\r\n"
+						+ "</div>");
+				
+				out.println("<div class='form-group '>");out.println("<label>Gender</label>\r\n"
+						+ "<input class='form-control' type='text' name='gender' value='" 
+						+ rs.getString("gender") + "'/>");
+				out.println("</div>");				
+				
+				out.println("<div class='form-group '>");
+				out.println("<label>Address</label>\r\n" 
+						+ "<input class='form-control' type='text' name='address' value='" 
+						+ rs.getString("address") + "'/>");
+				out.println("</div>");				
+				
+				out.println("<div class='form-group  '>");out.println("<label>Password</label>\r\n" 
+						+ "<input class='form-control' type='text' name='password' value='" 
+						+ rs.getString("password") 
+						+ "'/>");
+				out.println("</div>");
+				
+				out.println("<div class='form-group '>");
+				out.println("<input class='btn btn-danger' type='submit' name='submit' value='Update' />");
+				out.println("</div>");
 				out.println("</form>");
-
-				out.println("</table>");
+				out.println("</div>");
+				out.println("</div>");
+				out.println("</div>");
+				
+				out.println("</body>");
 			}
 			
 		
